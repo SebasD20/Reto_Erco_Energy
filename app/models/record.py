@@ -1,0 +1,29 @@
+from datetime import datetime
+
+from sqlalchemy import DateTime, ForeignKey
+from sqlalchemy.orm import Mapped, mapped_column, relationship
+
+from app.db import Base
+
+
+class Record(Base):
+    __tablename__ = "records"
+
+    id_record: Mapped[int] = mapped_column(primary_key=True)
+    id_service: Mapped[int] = mapped_column(
+        ForeignKey("services.id_service"), index=True
+    )
+    record_timestamp: Mapped[datetime] = mapped_column(
+        DateTime,
+        ForeignKey("xm_data_hourly_per_agent.record_timestamp"),
+        index=True,
+    )
+
+    service: Mapped["Service"] = relationship(back_populates="records")
+    xm_data: Mapped["XMDataHourlyPerAgent"] = relationship(back_populates="records")
+    injection: Mapped["Injection | None"] = relationship(
+        back_populates="record", uselist=False
+    )
+    consumption: Mapped["Consumption | None"] = relationship(
+        back_populates="record", uselist=False
+    )
