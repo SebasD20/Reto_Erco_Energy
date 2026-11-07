@@ -1,9 +1,16 @@
 from datetime import datetime
+from typing import TYPE_CHECKING
 
 from sqlalchemy import DateTime, ForeignKey
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.db import Base
+
+if TYPE_CHECKING:
+    from app.models.consumption import Consumption
+    from app.models.injection import Injection
+    from app.models.service import Service
+    from app.models.xm_data import XMDataHourlyPerAgent
 
 
 class Record(Base):
