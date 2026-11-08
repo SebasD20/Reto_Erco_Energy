@@ -144,8 +144,8 @@ Se aplican restricciones de unicidad y no negatividad en la base de datos, y val
 - Esquema SQL de referencia para entrega: `db/schema.sql` (no aplicar a una BD ya migrada).
 - Verificación no destructiva: `db/validacion.sql`.
 - Supuestos, decisiones, riesgos y mejoras: `docs/DECISIONES_TECNICAS.md`.
-- API HTTP: `docs/API.md`.
+- API HTTP: `docs/API.md`. 
 
 ## Consideraciones de seguridad
 
-Configurar credenciales únicamente en `.env`; el archivo debe estar ignorado por Git. Evitar publicar `.venv`, `.git`, `__pycache__`, `.pytest_cache` o ZIP de copias locales. La aplicación es una prueba local y **no incluye autenticación, despliegue productivo ni gestión de secretos**.
+Configurar credenciales únicamente en `.env`; el archivo debe estar ignorado por Git. Evitar publicar `.venv`, `.git`, `__pycache__`, `.pytest_cache`. La aplicación es una prueba local y **no incluye autenticación, despliegue productivo ni gestión de secretos**.
