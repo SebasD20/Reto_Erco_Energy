@@ -7,8 +7,13 @@ from app.routers.statistics import router as statistics_router
 from app.routers.system_load import router as system_load_router
 
 app = FastAPI(
-    title="Mi API",
-    description="API con documentación Swagger.",
+    title="ERCO ENERGY",
+    description=(
+        "API REST desarrollada como solución al reto técnico de ERCO ENERGY. "
+        "Permite procesar información energética, calcular conceptos de facturación "
+        "(EA, EC, EE1 y EE2), consultar estadísticas de consumo e inyección "
+        "y analizar la carga energética del sistema mediante datos almacenados en PostgreSQL."
+    ),
     version="1.0.0",
 )
 
